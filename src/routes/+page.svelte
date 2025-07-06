@@ -7,10 +7,16 @@
             link: "/blackpink-gamakay-gmk67-customized-mechanical-keyboard",
         },
         {
-            title: "Logitech G304 LIGHTSPEED Wireless Gaming Mouse",
-            label: "Order a G304",
-            image: "/files/logitech-g304.png",
-            link: "/logitech-g304-lightspeed-wireless-gaming-mouse",
+            title: "Logitech M240 Silent Bluetooth Mouse",
+            label: "Order a M240",
+            image: "/files/logitech-m240-silent-bluetooth-mouse.png",
+            link: "/logitech-m240-silent-bluetooth-mouse",
+        },
+        {
+            title: "JBL Tune 770NC Wireless Over-Ear Noise Cancelling Headphones",
+            label: "Order a JBL Tune 770NC",
+            image: "/files/jbl-tune-770nc.png",
+            link: "/jbl-tune-770nc-wireless-over-ear-noise-cancelling-headphones",
         },
     ];
 </script>

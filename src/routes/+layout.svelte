@@ -64,10 +64,26 @@
 			</li>
 			<li>
 				<a
-					href="/logitech-g304-lightspeed-wireless-gaming-mouse"
+					href="/logitech-m240-silent-bluetooth-mouse"
 					onclick={toggleMenu}
 				>
 					Mouse
+					{#if isMobile}
+						<Icon
+							icon="ep:right"
+							width="20"
+							height="20"
+							class="menu-icon"
+						/>
+					{/if}
+				</a>
+			</li>
+			<li>
+				<a
+					href="/jbl-tune-770nc-wireless-over-ear-noise-cancelling-headphones"
+					onclick={toggleMenu}
+				>
+					Headphone
 					{#if isMobile}
 						<Icon
 							icon="ep:right"

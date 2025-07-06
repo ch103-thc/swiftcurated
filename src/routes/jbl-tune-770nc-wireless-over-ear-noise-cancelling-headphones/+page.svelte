@@ -3,41 +3,40 @@
     import { slide } from "svelte/transition";
 
     const featureIcons = {
-        Wireless: "mdi:battery-charging-wireless-50",
-        "Hero Sensor": "material-symbols:sensors-rounded",
-        "12,000 DPI": "tabler:target",
-        "250h Battery Life": "gg:battery",
-        "Compact, Lightweight": "material-symbols:view-compact-outline-rounded",
+        "Noise Cancelling": "material-symbols:keyboard-outline-rounded",
+        Bass: "material-symbols:speaker",
+        "Long-Lasting Battery": "gg:battery",
+        Bluetooth: "material-symbols:bluetooth-rounded",
+        Personalise: "duo-icons:app",
+        "Clearer Calls": "tabler:microphone-filled",
         Lightweight: "fe:feather",
-        Button: "vaadin:button",
-        Memory: "material-symbols:memory-rounded",
     };
 
     const tags = $state(["Featured"]);
-    const price = $state(60);
+    const price = $state(120);
     const product = $state({
-        name: "Logitech G304 LIGHTSPEED Wireless Gaming Mouse",
+        name: "JBL Tune 770NC Wireless Over-Ear Noise Cancelling Headphones",
         description: [
-            "LIGHTSPEED Wireless - Say goodbye to lag. With a 1ms response time, your clicks and movements register instantly, so you stay one step ahead, trusted by eSports pros.",
-            "HERO Sensor (12,000 DPI) - Enjoy ultra-precise tracking with zero smoothing or acceleration, giving you full control in every match.",
-            "Up to 250 Hours of Battery Life - Powered by a single AA battery, perfect for long gaming marathons without interruptions.",
-            "Compact, Lightweight Design -  Weighing just 99g, the G304 feels natural in your hand for hours of non-stop gaming.",
-            "Programmable Buttons - Customize your controls for gaming, productivity, or multitasking.",
-            "Onboard Memory - Save your DPI settings and macros directly on the mouse for on-the-go use.",
+            "Adaptive Noise Cancelling - Block out distractions and focus on your music, work, or calls. You can even switch to Smart Ambient mode to stay aware of your surroundings when needed.",
+            "Pure Bass, Pure Bliss - Feel the thump of JBL’s signature Pure Bass sound. Whether you’re vibing to beats or zoning into a podcast, your audio will be rich, clear, and immersive.",
+            "All-Day Battery Life - Get up to 70 hours of playtime on a single charge—enough to keep up with your longest days. In a rush? A quick 5-minute charge gives you 3 hours of playback.",
+            "Bluetooth 5.3 with LE Audio -  Enjoy stable, high-quality wireless streaming and seamless switching between your phone, tablet, or laptop with multi-point connection support.",
+            "Personalize Your Sound - Download the JBL Headphones app to adjust your EQ and customize your listening experience to match your mood or music.",
+            "Clearer Calls, Your Way - With VoiceAware, you control how much of your own voice you hear during calls—so you sound more natural and confident.",
+            "Foldable, Lightweight Design - The headphones fold flat for easy storage and travel, while the cushioned ear cups ensure all-day comfort.",
         ],
-        image: "/files/mouse1.jpg",
-        originalPrice: 60,
-        salePrice: 45,
+        image: "/files/headphones1.jpg",
+        originalPrice: 120,
         features: [
-            "Wireless",
-            "Hero Sensor",
-            "12,000 DPI",
-            "250h Battery Life",
+            "Noise Cancelling",
+            "Bass",
+            "Long-Lasting Battery",
+            "Bluetooth",
+            "Personalise",
+            "Clearer Calls",
             "Lightweight",
-            "Button",
-            "Memory",
         ],
-        includes: ["Mouse", "AA battery", "USB Dongle", "USB extension cable"],
+        includes: ["Keycap Puller", "2.4Hz USB Dongle", "USB Cable"],
         brand: "GamaKay",
         condition: "New",
     });
@@ -45,14 +44,13 @@
     let productInfoSections = $state([
         {
             title: "Specs & Details",
-            intro: "Step up your game with the Logitech G304 - a wireless gaming mouse that gives you the speed, precision, and reliability you need to win. With ultra-fast LIGHTSPEED technology and the HERO sensor, you get pro-level performance in a lightweight, compact design that's built to keep up with your every move.",
+            intro: "Take your listening experience to the next level with the JBL Tune 770NC wireless over-ear headphones. Whether you’re commuting, working, or relaxing, these headphones give you the power to tune out the noise and dive deep into your music—just the way you like it.",
             listItems: product.description,
-            footer: "Whether you're playing at home or on the go, the G304 delivers elite performance in a clean and minimalist design - all without the cable drag.",
             open: false,
         },
         {
             title: "What's in the box?",
-            intro: "Accessories",
+            intro: "Keyboard comes fully assembled.<br>Accessories",
             listItems: product.includes,
             open: false,
         },
@@ -76,7 +74,7 @@
         },
         {
             question: "What type of connection does it support?",
-            answer: "It supports a proprietary LIGHTSPEED wireless connection using a 2.4 GHz USB dongle.",
+            answer: "It supports both Bluetooth and wired connections.",
             open: false,
         },
         {
@@ -87,8 +85,10 @@
     ]);
 
     const mediaItems = $state([
-        { type: "image", src: "/files/mouse1.jpg", alt: "View 1" },
-        { type: "image", src: "/files/mouse2.jpg", alt: "View 2" },
+        { type: "image", src: "/files/headphones1.jpg", alt: "View 1" },
+        { type: "image", src: "/files/headphones2.jpg", alt: "View 2" },
+        { type: "image", src: "/files/headphones3.jpg", alt: "View 3" },
+        { type: "image", src: "/files/headphones4.jpg", alt: "View 4" },
     ]);
 
     let currentSlide = $state(0);
@@ -225,25 +225,9 @@
                 </div>
                 <h1 class="product-title">{product.name}</h1>
                 <div class="product-pricing">
-                    {#if product.salePrice && product.salePrice < product.originalPrice}
-                        <span class="original-price"
-                            >S${product.originalPrice.toFixed(2)}</span
-                        >
-                        <span class="sale-price"
-                            >S${product.salePrice.toFixed(2)}</span
-                        >
-                        <span class="discount-badge"
-                            >{Math.round(
-                                ((product.originalPrice - product.salePrice) /
-                                    product.originalPrice) *
-                                    100,
-                            )}% OFF</span
-                        >
-                    {:else}
-                        <span class="regular-price"
-                            >S${product.originalPrice.toFixed(2)}</span
-                        >
-                    {/if}
+                    <span class="regular-price"
+                        >S${product.originalPrice.toFixed(2)}</span
+                    >
                 </div>
                 <div class="product-features">
                     <h3 class="features-title">Features</h3>
@@ -281,18 +265,13 @@
                                         transition:slide
                                     >
                                         {#if section.intro}
-                                            <p>{section.intro}</p>
+                                            <p>{@html section.intro}</p>
                                         {/if}
                                         <ul class="info-list">
                                             {#each section.listItems as item}
                                                 <li>{item}</li>
                                             {/each}
                                         </ul>
-                                        {#if section.footer}
-                                            <p class="collapsible-footer">
-                                                {section.footer}
-                                            </p>
-                                        {/if}
                                     </div>
                                 {/if}
                             </li>
@@ -301,7 +280,7 @@
                 </section>
 
                 <a
-                    href="https://www.carousell.sg/p/logitech-g304-lightspeed-wireless-gaming-mouse-1364192437/?t-id=14184060_1744351728891&t-referrer_browse_type=seller&t-referrer_page_type=profile&t-referrer_request_id=mSTyS-ZCW9YvfuDO&t-tap_index=0"
+                    href="https://www.carousell.sg/p/jbl-tune-770nc-wireless-over-ear-noise-cancelling-headphones-1371294412/?t-id=bVOd0KoDAV_1751775207462&t-referrer_browse_type=seller&t-referrer_page_type=profile&t-referrer_request_id=DkGxtgowjy7g32Ze&t-tap_index=3"
                     target="_blank"
                 >
                     <button class="action-button">Buy Now</button>
@@ -513,22 +492,9 @@
                         gap: 0.5rem;
                         margin: 1rem 0;
 
-                        .original-price {
-                            text-decoration: line-through;
-                            color: #888;
-                        }
-
-                        .sale-price {
-                            color: #27ae60;
+                        .regular-price {
                             font-weight: bold;
-                        }
-
-                        .discount-badge {
-                            background-color: #27ae60;
-                            color: #fff;
-                            padding: 0.2rem 0.5rem;
-                            font-size: 0.8rem;
-                            border-radius: 4px;
+                            color: #333;
                         }
                     }
 
@@ -633,10 +599,6 @@
                                     padding: 1rem;
                                     background-color: #f9fafb;
                                     color: #6b7280;
-
-                                    .collapsible-footer {
-                                        margin-top: 1rem;
-                                    }
 
                                     p {
                                         margin-top: 0;
